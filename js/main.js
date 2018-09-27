@@ -1,8 +1,8 @@
 let restaurants,
   neighborhoods,
-  cuisines
-var newMap
-var markers = []
+  cuisines;
+var newMap;
+var markers = [];
 
 /**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
@@ -73,12 +73,12 @@ fillCuisinesHTML = (cuisines = self.cuisines) => {
  */
 initMap = () => {
   self.newMap = L.map('map', {
-        center: [40.722216, -73.987501],
+        center: [40.713, -73.98],
         zoom: 12,
         scrollWheelZoom: false
       });
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token={mapboxToken}', {
-    mapboxToken: '<your MAPBOX API KEY HERE>',
+    mapboxToken: 'pk.eyJ1IjoicGF0cmlja292IiwiYSI6ImNqbWZwcm1mMzJzYTIzcWxrdWpqdGlua3QifQ.8p2aGv-beOLZVUNPbR0I4g',
     maxZoom: 18,
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
       '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
@@ -147,7 +147,7 @@ resetRestaurants = (restaurants) => {
 fillRestaurantsHTML = (restaurants = self.restaurants) => {
   const ul = document.getElementById('restaurants-list');
   restaurants.forEach(restaurant => {
-    ul.append(createRestaurantHTML(restaurant));
+    ul.innerHTML += createRestaurantHTML(restaurant);
   });
   addMarkersToMap();
 }
@@ -156,29 +156,18 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
  * Create restaurant HTML.
  */
 createRestaurantHTML = (restaurant) => {
-  const li = document.createElement('li');
+  
+  const imageSrc = DBHelper.imageUrlForRestaurant(restaurant);
+  const moreHref = DBHelper.urlForRestaurant(restaurant);
 
-  const image = document.createElement('img');
-  image.className = 'restaurant-img';
-  image.src = DBHelper.imageUrlForRestaurant(restaurant);
-  li.append(image);
-
-  const name = document.createElement('h1');
-  name.innerHTML = restaurant.name;
-  li.append(name);
-
-  const neighborhood = document.createElement('p');
-  neighborhood.innerHTML = restaurant.neighborhood;
-  li.append(neighborhood);
-
-  const address = document.createElement('p');
-  address.innerHTML = restaurant.address;
-  li.append(address);
-
-  const more = document.createElement('a');
-  more.innerHTML = 'View Details';
-  more.href = DBHelper.urlForRestaurant(restaurant);
-  li.append(more)
+  const li = 
+    `<li class="border-radius-styles">
+      <img class="restaurant-img" src="${imageSrc}">
+      <h1>${restaurant.name}</h1>
+      <p>${restaurant.neighborhood}</p>
+      <p>${restaurant.address}</p>
+      <a href="${moreHref}">View Details</a>
+    </li>`;
 
   return li
 }
