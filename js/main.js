@@ -33,10 +33,8 @@ fetchNeighborhoods = () => {
 fillNeighborhoodsHTML = (neighborhoods = self.neighborhoods) => {
   const select = document.getElementById('neighborhoods-select');
   neighborhoods.forEach(neighborhood => {
-    const option = document.createElement('option');
-    option.innerHTML = neighborhood;
-    option.value = neighborhood;
-    select.append(option);
+    const option = `<option value="${neighborhood}">${neighborhood}</option>`;
+    select.innerHTML += option;
   });
 }
 
@@ -162,13 +160,12 @@ createRestaurantHTML = (restaurant) => {
 
   const li = 
     `<li class="border-radius-styles">
-      <img class="restaurant-img" src="${imageSrc}">
+      <img class="restaurant-img" src="${imageSrc}" alt="${restaurant.name}">
       <h1>${restaurant.name}</h1>
       <p>${restaurant.neighborhood}</p>
       <p>${restaurant.address}</p>
-      <a href="${moreHref}">View Details</a>
+      <a aria-label="${restaurant.name}"tabindex="3" href="${moreHref}">View Details</a>
     </li>`;
-
   return li
 }
 

@@ -83,15 +83,17 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   const name = document.getElementById('restaurant-name');
   name.innerHTML = restaurant.name;
 
-  const address = document.getElementById('restaurant-address');
-  address.innerHTML = restaurant.address;
+  const imgSrc = DBHelper.imageUrlForRestaurant(restaurant);
+  const cuisine = restaurant.cuisine_type;
 
-  const image = document.getElementById('restaurant-img');
-  image.className = 'restaurant-img'
-  image.src = DBHelper.imageUrlForRestaurant(restaurant);
-
-  const cuisine = document.getElementById('restaurant-cuisine');
-  cuisine.innerHTML = restaurant.cuisine_type;
+  const restaurantTemplate = 
+    `<img id="restaurant-img" class="restaurant-img" src="${imgSrc}" alt="${restaurant.name}">
+      <p id="restaurant-cuisine">${cuisine}</p>
+      <p id="restaurant-address">${restaurant.address}</p>
+    <table id="restaurant-hours"></table>`;
+  
+  const restaurantContainer = document.getElementById('restaurant-container');
+  restaurantContainer.innerHTML = restaurantTemplate;
 
   // fill operating hours
   if (restaurant.operating_hours) {
