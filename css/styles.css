@@ -114,9 +114,9 @@ nav h1 a {
     text-decoration: underline;
 }
 /* ====================== Map ====================== */
-#map { 
-  position:absolute; 
-  top:130px; 
+#map {
+  position:absolute;
+  top:130px;
   bottom:0;
   height: 300px;
   width:100%;
@@ -126,8 +126,8 @@ nav h1 a {
 }
 div .leaflet-top,  div .leaflet-bottom {
   z-index: 600;
-   padding-top: 100px; 
-} 
+   padding-top: 100px;
+}
 /* ====================== Restaurant Filtering ====================== */
 #main-section {
   margin-top: -40px;
@@ -360,7 +360,7 @@ div .leaflet-top,  div .leaflet-bottom {
 /* ====================== Media Queries ====================== */
 
 @media only screen and (min-width: 600px) {
-  
+
   #map-border {
     letter-spacing: 8px;
     height: 51px;
@@ -371,7 +371,7 @@ div .leaflet-top,  div .leaflet-bottom {
     align-items: normal;
   }
   #restaurants-list li {
-    margin-bottom: 30px; 
+    margin-bottom: 30px;
     width: calc(50% - 90px);
   }
 
