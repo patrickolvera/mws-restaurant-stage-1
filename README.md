@@ -3,7 +3,7 @@ For this project I was given a website that needed a layout redesign with a lot 
 - Create and implement a Mobile Responsive Design
 - Design and build improved desktop layout
 - Add accessibility features for visually impaired and/or screen reader users
-- Redesign website for aesthics
+- Redesign website for aesthetics
 - Implement a service worker and caching for offline functionality
 - Refactored some of the code to improve future developer experience
 
