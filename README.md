@@ -1,10 +1,15 @@
-# Mobile Web Specialist Certification Course
----
-#### _Three Stage Course Material Project - Restaurant Reviews_
+# Restaurant Reviews App
+For this project I was given a website that needed a layout redesign with a lot of issues to fix, and features to implement including:
+- Create and implement a Mobile Responsive Design
+- Design and build improved desktop layout
+- Add accessibility features for visually impaired and/or screen reader users
+- Redesign website for aesthics
+- Implement a service worker and caching for offline functionality
+- Refactored some of the code to improve future developer experience
 
-## Project Overview: Stage 1
+## Project Overview:
 
-For the **Restaurant Reviews** projects, you will incrementally convert a static webpage to a mobile-ready web application. In **Stage One**, you will take a static design that lacks accessibility and convert the design to be responsive on different sized displays and accessible for screen reader use. You will also add a service worker to begin the process of creating a seamless offline experience for your users.
+You will take a static design that lacks accessibility and convert the design to be responsive on different sized displays and accessible for screen reader use. You will also add a service worker to begin the process of creating a seamless offline experience for your users.
 
 ### Specification
 
